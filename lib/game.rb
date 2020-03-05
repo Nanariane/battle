@@ -1,5 +1,6 @@
 class Game
-  attr_reader :current_turn
+  #taking this out from user story I wanna player 2's attack to take my HP out and add
+    attr_reader :current_turn
 
 
   def initialize(player_1, player_2)
@@ -23,10 +24,13 @@ class Game
     @current_turn = opponent_of(current_turn)
   end
 
-end
+  def opponent_of(the_player)
+    @players.select { |player| player !=the_player }.first
+  end
 
 
+#taking the old private opponent_of out rom user story I wanna player 2's attack to take my HP out and add
 private
-def opponent_of(the_player)
-  @players.select { |player| player !=the_player }.first
-end 
+attr_reader :players
+
+end

@@ -61,7 +61,9 @@ class Battle < Sinatra::Base
 
   #and doing this instead
     @game = $game
-    @game.attack(@game.player_2)
+  #taking this out from user story I wanna player 2's attack to take my HP out and add
+    # @game.attack(@game.player_2)
+    @game.attack(@game.opponent_of(@game.current_turn))
   #taking this out from user story I want to get confirmation Player 2 is hitting me
     # @game.switch_turns
     erb :attack
