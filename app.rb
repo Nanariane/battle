@@ -62,8 +62,15 @@ class Battle < Sinatra::Base
   #and doing this instead
     @game = $game
     @game.attack(@game.player_2)
-    @game.switch_turns
+  #taking this out from user story I want to get confirmation Player 2 is hitting me
+    # @game.switch_turns
     erb :attack
+  end
+
+  #adding this from user story to get confirmation PLayer 2 is hitting me
+  post '/switch-turns' do
+    $game.switch_turns
+    redirect('./play')
   end
 
   # start the server if ruby file executed directly
